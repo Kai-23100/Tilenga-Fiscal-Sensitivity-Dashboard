@@ -11,7 +11,7 @@ st.set_page_config(page_title="Tilenga Fiscal Sensitivity Dashboard", layout="wi
 # ----------------------
 # HEADER
 # ----------------------
-st.title("📊 Tilenga Project Fiscal Sensitivity Dashboard")
+st.title("Tilenga Project Fiscal Sensitivity Dashboard")
 st.markdown("""
 This tool allows the Business Development team at TotalEnergies EP Uganda to evaluate the impact of key fiscal variables — such as depreciation rates, royalty thresholds, and oil price volatility — on the cash flow and IRR of the Tilenga Project. It integrates real-world economic data and references Uganda's petroleum legal framework.
 """)
