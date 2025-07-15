@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import numpy_financial as npf
 import yfinance as yf
 import requests
 from bs4 import BeautifulSoup
@@ -70,7 +71,7 @@ cash_flows = np.repeat(cash_flow, project_life)
 # Discounted Cash Flows
 discounted_cash_flows = cash_flows / ((1 + discount_rate / 100) ** years)
 npv = np.sum(discounted_cash_flows) - capex
-irr = np.irr([-capex] + list(cash_flows)) * 100
+irr = npf.irr([-capex] + list(cash_flows)) * 100
 
 # ----------------------
 # DASHBOARD DISPLAY
