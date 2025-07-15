@@ -70,7 +70,7 @@ cash_flows = np.repeat(cash_flow, project_life)
 
 # Discounted Cash Flows
 discounted_cash_flows = cash_flows / ((1 + discount_rate / 100) ** years)
-npv = np.sum(discounted_cash_flows) - capex
+npv = npf.npv(discount_rate / 100, [-capex] + list(cash_flows))
 irr = npf.irr([-capex] + list(cash_flows)) * 100
 
 # ----------------------
