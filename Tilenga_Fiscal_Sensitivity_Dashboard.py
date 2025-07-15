@@ -16,10 +16,14 @@ This tool allows the Business Development team at TotalEnergies EP Uganda to eva
 """)
 
 # ----------------------
-# FETCH REAL ECONOMIC DATA
-# ----------------------
-oil_price_data = yf.download("BZ=F", period="7d", interval="1d")
-latest_oil_price = oil_price_data['Close'].iloc[-1] if not oil_price_data.empty else 75
+# FETCH REAL ECONOMIC DATA SAFELY
+try:
+    oil_price_data = yf.download("BZ=F", period="7d", interval="1d")
+    latest_oil_price = oil_price_data['Close'].dropna().iloc[-1]
+    latest_oil_price = float(latest_oil_price)
+except Exception as e:
+    st.warning("⚠️ Could not fetch latest oil price. Using fallback value of $75.")
+    latest_oil_price = 75.00
 
 # Fetch USD to UGX rate from exchangerate.host
 fx_response = requests.get("https://api.exchangerate.host/latest?base=USD&symbols=UGX")
