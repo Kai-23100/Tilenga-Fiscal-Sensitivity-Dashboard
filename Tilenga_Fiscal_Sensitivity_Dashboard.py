@@ -97,3 +97,46 @@ st.dataframe(data.style.format("{:.2f}"))
 # Chart
 st.subheader("Net Cash Flow Over Project Life")
 st.line_chart(pd.DataFrame({"Year": years, "Net Cash Flow ($M)": cash_flows}).set_index("Year"))
+
+from fpdf import FPDF
+import base64
+from io import BytesIO
+
+# Generate PDF
+pdf = FPDF()
+pdf.add_page()
+pdf.set_font("Arial", "B", 14)
+pdf.cell(200, 10, "Tilenga Fiscal Sensitivity Report", ln=True, align='C')
+pdf.set_font("Arial", "", 12)
+pdf.ln(10)
+
+pdf.cell(200, 10, f"Oil Price: ${oil_price:.2f}", ln=True)
+pdf.cell(200, 10, f"Production: {production:,} bbl/day", ln=True)
+pdf.cell(200, 10, f"CAPEX: ${capex:,} million", ln=True)
+pdf.cell(200, 10, f"OPEX: ${opex_per_bbl:.2f} per bbl", ln=True)
+pdf.cell(200, 10, f"Depreciation Rate: {depreciation_rate}%", ln=True)
+pdf.cell(200, 10, f"Royalty Rate: {royalty_rate}%", ln=True)
+pdf.cell(200, 10, f"Tax Rate: {tax_rate}%", ln=True)
+pdf.cell(200, 10, f"Discount Rate: {discount_rate}%", ln=True)
+pdf.cell(200, 10, f"Project Life: {project_life} years", ln=True)
+
+pdf.ln(10)
+pdf.set_font("Arial", "B", 12)
+pdf.cell(200, 10, "Key Results", ln=True)
+pdf.set_font("Arial", "", 12)
+pdf.cell(200, 10, f"NPV: ${npv:,.2f} million", ln=True)
+pdf.cell(200, 10, f"IRR: {irr:.2f}%", ln=True)
+pdf.cell(200, 10, f"Annual Revenue: ${revenue:,.2f} million", ln=True)
+
+# Save to buffer
+buffer = BytesIO()
+pdf.output(buffer)
+pdf_data = buffer.getvalue()
+
+# Provide download button
+st.download_button(
+    label="📄 Download Fiscal Report as PDF",
+    data=pdf_data,
+    file_name="Tilenga_Fiscal_Report.pdf",
+    mime="application/pdf"
+)
