@@ -82,7 +82,7 @@ col2.metric("IRR (%)", f"{irr:,.2f}")
 col3.metric("Annual Revenue ($M)", f"{revenue:,.2f}")
 
 # Cash Flow Table
-st.subheader("📅 Projected Annual Financials")
+st.subheader("Projected Annual Financials")
 data = pd.DataFrame({
     "Year": years,
     "Revenue ($M)": revenues,
@@ -95,13 +95,13 @@ data = pd.DataFrame({
 st.dataframe(data.style.format("{:.2f}"))
 
 # Chart
-st.subheader("📈 Net Cash Flow Over Project Life")
+st.subheader("Net Cash Flow Over Project Life")
 st.line_chart(pd.DataFrame({"Year": years, "Net Cash Flow ($M)": cash_flows}).set_index("Year"))
 
 # ----------------------
 # LEGAL REFERENCES
 # ----------------------
-st.subheader("📚 Relevant Ugandan Laws and Regulations")
+st.subheader("Relevant Ugandan Laws and Regulations")
 st.markdown("""
 - **Petroleum (Exploration, Development and Production) Act, 2013**: Governs all upstream activities in Uganda. [Read on ULII](https://ulii.org/ug/legislation/act/2013/3)
 - **Income Tax Act (Cap 340)**: Includes provisions for capital deductions, including **Schedule 2** on depreciation. [Read on ULII](https://ulii.org/ug/legislation/consolidated-act/340)
