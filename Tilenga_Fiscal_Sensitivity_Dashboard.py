@@ -97,22 +97,3 @@ st.dataframe(data.style.format("{:.2f}"))
 # Chart
 st.subheader("Net Cash Flow Over Project Life")
 st.line_chart(pd.DataFrame({"Year": years, "Net Cash Flow ($M)": cash_flows}).set_index("Year"))
-
-# ----------------------
-# LEGAL REFERENCES
-# ----------------------
-st.subheader("Relevant Ugandan Laws and Regulations")
-st.markdown("""
-- **Petroleum (Exploration, Development and Production) Act, 2013**: Governs all upstream activities in Uganda. [Read on ULII](https://ulii.org/ug/legislation/act/2013/3)
-- **Income Tax Act (Cap 340)**: Includes provisions for capital deductions, including **Schedule 2** on depreciation. [Read on ULII](https://ulii.org/ug/legislation/consolidated-act/340)
-- **National Environment Act, 2019**: Compliance framework for EIA and ESG obligations. [Read on ULII](https://ulii.org/ug/legislation/act/2019/5-0)
-- **Public Finance Management Act, 2015**: Manages oil revenue transparency and fiscal rules.
-- **Production Sharing Agreements (PSAs)**: Specific fiscal terms for Tilenga can be derived from Uganda’s PSA model.
-""")
-
-# ----------------------
-# FOOTER
-# ----------------------
-st.markdown("""
-**Disclaimer:** This dashboard is for strategic and educational use only. It integrates real-time market data and statutory references, but results are estimates. Please consult certified financial analysts and legal advisors before relying on the output for decision-making.
-""")
