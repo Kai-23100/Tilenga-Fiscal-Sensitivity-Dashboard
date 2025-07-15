@@ -4,3 +4,4 @@ numpy
 yfinance
 requests
 beautifulsoup4
+numpy-financial
