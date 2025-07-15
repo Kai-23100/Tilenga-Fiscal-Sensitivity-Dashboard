@@ -1,11 +1,12 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import numpy_financial as npf
 import yfinance as yf
 import requests
 from bs4 import BeautifulSoup
+from fpdf import FPDF
 import matplotlib.pyplot as plt
+from io import BytesIO
 
 st.set_page_config(page_title="Tilenga Fiscal Sensitivity Dashboard", layout="wide")
 
