@@ -36,7 +36,7 @@ usd_to_ugx = fx_response.json().get('rates', {}).get('UGX', 3800)
 # ----------------------
 # SIDEBAR - INPUTS
 # ----------------------
-st.sidebar.header("🔧 Input Assumptions")
+st.sidebar.header("Input Assumptions")
 oil_price = st.sidebar.number_input("Oil Price ($/bbl)", value=round(latest_oil_price, 2))
 production = st.sidebar.number_input("Daily Production (bbl/day)", value=200000)
 days_per_year = 365
@@ -104,7 +104,7 @@ st.line_chart(pd.DataFrame({"Year": years, "Net Cash Flow ($M)": cash_flows}).se
 # ----------------------
 # PDF EXPORT WITH CHART
 # ----------------------
-st.subheader("📥 Download PDF Report")
+st.subheader("Download PDF Report")
 # Generate chart image
 fig, ax = plt.subplots()
 ax.plot(years, cash_flows, marker='o', linestyle='-', color='green')
