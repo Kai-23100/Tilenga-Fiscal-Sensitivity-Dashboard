@@ -26,8 +26,8 @@ try:
     latest_oil_price = oil_price_data['Close'].dropna().iloc[-1]
     latest_oil_price = float(latest_oil_price)
 except Exception as e:
-    st.warning("⚠️ Could not fetch latest oil price. Using fallback value of $75.")
-    latest_oil_price = 75.00
+    st.warning("⚠️ Could not fetch latest oil price. Using fallback value of $68.8")
+    latest_oil_price = 68.80
 
 # Fetch USD to UGX rate from exchangerate.host
 fx_response = requests.get("https://api.exchangerate.host/latest?base=USD&symbols=UGX")
