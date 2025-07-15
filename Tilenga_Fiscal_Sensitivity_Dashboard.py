@@ -5,6 +5,7 @@ import numpy_financial as npf
 import yfinance as yf
 import requests
 from bs4 import BeautifulSoup
+import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="Tilenga Fiscal Sensitivity Dashboard", layout="wide")
 
