@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 from fpdf import FPDF
 import matplotlib.pyplot as plt
 from io import BytesIO
+import numpy_financial as npf
 
 st.set_page_config(page_title="Tilenga Fiscal Sensitivity Dashboard", layout="wide")
 
